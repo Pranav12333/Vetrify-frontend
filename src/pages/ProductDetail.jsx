@@ -3,52 +3,14 @@ import { useParams, useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import ReviewSection from "../components/ReviewSection";
 import SimilarProducts from "../components/SimilarProducts";
+import products from "../data/products";
 
-const dummyProducts = [
-  {
-    id: 1,
-    name: "Elegant Patola Saree",
-    price: 1499,
-    originalPrice: 1899,
-    image: "https://picsum.photos/500/600?random=1",
-    description:
-      "Beautiful Patola Saree with handwoven details. Includes blouse piece. Ideal for weddings and festive wear.",
-    specifications: {
-      fabric: "Silk Blend",
-      length: "6.3m (with blouse)",
-      color: "Red",
-      style: "Traditional",
-    },
-    reviews: [
-      { name: "Priya", rating: 5, comment: "Absolutely loved it!" },
-      { name: "Amit", rating: 4, comment: "Nice fabric and delivery was fast." },
-    ],
-  },
-  {
-    id: 2,
-    name: "Modern Kurti Set",
-    price: 999,
-    originalPrice: 1299,
-    image: "https://picsum.photos/500/600?random=2",
-    description:
-      "Modern kurti with embroidered design and matching bottoms. Comfortable and stylish.",
-    specifications: {
-      fabric: "Cotton",
-      size: "M, L, XL",
-      color: "Blue",
-      style: "Modern",
-    },
-    reviews: [
-      { name: "Neha", rating: 4, comment: "Very comfortable and stylish!" },
-    ],
-  },
-];
 
 const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const product = dummyProducts.find((p) => p.id === parseInt(id));
+  const product = products.find((p) => p.id === parseInt(id));
 
   if (!product) return <div className="p-10 text-center">Product not found</div>;
 
@@ -110,10 +72,14 @@ const ProductDetail = () => {
       </div>
 
       {/* Reviews */}
-      <ReviewSection reviews={product.reviews} />
+    {products.reviews && products.reviews.length > 0 && (
+      <ReviewSection reviews={products.reviews} />
+    )}
 
       {/* Similar Products */}
-      <SimilarProducts currentProductId={product.id} products={dummyProducts} />
+    {products.filter((p) => p.id !== products.id).length > 0 && (
+      <SimilarProducts currentProductId={products.id} products={products} />
+    )}
     </div>
   );
 };
