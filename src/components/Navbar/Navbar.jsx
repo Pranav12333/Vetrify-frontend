@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../../assets/logo.png";
 import { IoMdSearch } from "react-icons/io";
-import { FaCartShopping } from "react-icons/fa6";
-import { FaCaretDown } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa"; // FIXED icon
 import DarkMode from "./DarkMode";
 import { Link } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
 
-// Updated routes
+// Menu items
 const Menu = [
   { id: 1, name: "Home", link: "/" },
   { id: 2, name: "New Arrivals", link: "/new-arrivals" },
@@ -22,51 +22,53 @@ const DropdownLinks = [
 ];
 
 const Navbar = ({ handleOrderPopup }) => {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="shadow-md bg-white dark:bg-gray-900 dark:text-white duration-200 relative z-40">
-      {/* upper Navbar */}
+      {/* Top bar */}
       <div className="bg-primary/40 py-2">
         <div className="container flex justify-between items-center">
-          <div>
-            <Link to="/" className="font-bold text-2xl sm:text-3xl flex gap-2">
-              <img src={Logo} alt="Logo" className="w-10" />
-              Vestrify Soul
-            </Link>
-          </div>
+          <Link to="/" className="font-bold text-2xl sm:text-3xl flex gap-2 items-center">
+            <img src={Logo} alt="Logo" className="w-10" />
+            Vestrify Soul
+          </Link>
 
-          {/* search bar */}
-          <div className="flex justify-between items-center gap-4">
+          {/* Right section */}
+          <div className="flex items-center gap-4">
             <div className="relative group hidden sm:block">
               <input
                 type="text"
-                placeholder="search"
-                className="w-[200px] sm:w-[200px] group-hover:w-[300px] transition-all duration-300 rounded-full border border-gray-300 px-2 py-1 focus:outline-none focus:border-1 focus:border-primary dark:border-gray-500 dark:bg-gray-800"
+                placeholder="Search"
+                className="w-[200px] group-hover:w-[300px] transition-all duration-300 rounded-full border border-gray-300 px-2 py-1 focus:outline-none focus:border-primary dark:border-gray-500 dark:bg-gray-800"
               />
               <IoMdSearch className="text-gray-500 group-hover:text-primary absolute top-1/2 -translate-y-1/2 right-3" />
             </div>
 
-            {/* order button */}
             <button
-              onClick={() => handleOrderPopup()}
-              className="bg-gradient-to-r from-primary to-secondary transition-all duration-200 text-white  py-1 px-4 rounded-full flex items-center gap-3 group"
+              onClick={handleOrderPopup}
+              className="bg-gradient-to-r from-primary to-secondary transition-all duration-200 text-white py-1 px-4 rounded-full flex items-center gap-2"
             >
-              <span className="group-hover:block hidden transition-all duration-200">
-                Order
-              </span>
-              <FaCartShopping className="text-xl text-white drop-shadow-sm cursor-pointer" />
+              <span className="hidden sm:inline">Order</span>
+              <FaShoppingCart className="text-xl" />
             </button>
 
-            {/* Darkmode Switch */}
-            <div>
-              <DarkMode />
-            </div>
+            <DarkMode />
+
+            {/* Toggle for mobile */}
+            <button
+              onClick={() => setOpen(!open)}
+              className="sm:hidden text-2xl"
+            >
+              {open ? <FaTimes /> : <FaBars />}
+            </button>
           </div>
         </div>
       </div>
 
-      {/* lower Navbar */}
-      <div data-aos="zoom-in" className="flex justify-center">
-        <ul className="sm:flex hidden items-center gap-4 py-3">
+      {/* Bottom Navbar - desktop */}
+      <div data-aos="zoom-in" className="hidden sm:flex justify-center">
+        <ul className="flex items-center gap-4 py-3">
           {Menu.map((item) => (
             <li key={item.id}>
               <Link
@@ -77,7 +79,28 @@ const Navbar = ({ handleOrderPopup }) => {
               </Link>
             </li>
           ))}
+        </ul>
+      </div>
 
+      {/* Mobile Menu */}
+      <div
+        className={`sm:hidden bg-white dark:bg-gray-900 absolute w-full left-0 z-30 overflow-hidden transition-all duration-500 ease-in-out ${
+          open ? "max-h-[500px] py-4" : "max-h-0"
+        }`}
+      >
+        <ul className="flex flex-col items-center gap-4">
+          {Menu.map((item) => (
+            <li key={item.id}>
+              <Link
+                to={item.link}
+                onClick={() => setOpen(false)}
+                className="block px-4 py-2 hover:text-primary duration-200"
+              >
+                {item.name}
+              </Link>
+            </li>
+          ))}
+          
           {/* Simple Dropdown and Links */}
           {/* <li className="group relative cursor-pointer">
             <div className="flex items-center gap-[2px] py-2 px-4 hover:text-primary duration-200">
