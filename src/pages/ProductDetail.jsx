@@ -1,6 +1,6 @@
-// src/pages/ProductDetail.jsx
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { IoIosArrowBack } from "react-icons/io";
 import ReviewSection from "../components/ReviewSection";
 import SimilarProducts from "../components/SimilarProducts";
 
@@ -46,19 +46,30 @@ const dummyProducts = [
 
 const ProductDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+
   const product = dummyProducts.find((p) => p.id === parseInt(id));
 
   if (!product) return <div className="p-10 text-center">Product not found</div>;
 
   return (
     <div className="container py-10 space-y-14">
-      {/* Main Product Info */}
+      {/* Back Button */}
+      <button
+        onClick={() => navigate("/new-arrivals")}
+        className="flex items-center text-primary hover:text-black dark:hover:text-white transition duration-300 mb-4 group"
+      >
+        <IoIosArrowBack className="text-2xl mr-2 group-hover:-translate-x-1 transition-transform duration-300" />
+        <span className="text-lg font-medium">Back to New Arrivals</span>
+      </button>
+
+      {/* Product Info */}
       <div className="grid md:grid-cols-2 gap-10">
         <div>
           <img
             src={product.image}
             alt={product.name}
-            className="w-full h-auto rounded-md"
+            className="w-full max-h-[600px] object-contain rounded-md"
           />
         </div>
 
