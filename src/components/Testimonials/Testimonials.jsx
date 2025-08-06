@@ -72,7 +72,7 @@ const Testimonials = () => {
       <div className="container">
         {/* header section */}
         <div className="text-center mb-10 max-w-[600px] mx-auto">
-          <p data-aos="fade-up" className="text-sm text-primary">
+          <p data-aos="fade-up" className="text-m text-primary">
             What Our Customers Say
           </p>
           <h1 data-aos="fade-up" className="text-3xl font-bold">

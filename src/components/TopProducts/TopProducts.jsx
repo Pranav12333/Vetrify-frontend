@@ -35,7 +35,7 @@ const TopProducts = ({ handleOrderPopup }) => {
       <div className="container">
         {/* Header section */}
         <div className="text-left mb-24">
-          <p data-aos="fade-up" className="text-sm text-primary">
+          <p data-aos="fade-up" className="text-m text-primary">
             Curated For Every Style
           </p>
           <h1 data-aos="fade-up" className="text-3xl font-bold">
@@ -72,7 +72,7 @@ const TopProducts = ({ handleOrderPopup }) => {
                   <FaStar className="text-yellow-500" />
                 </div>
                 <h1 className="text-xl font-bold">{data.title}</h1>
-                <p className="text-gray-500 group-hover:text-white duration-300 text-sm line-clamp-2">
+                <p className="text-gray-500 group-hover:text-white duration-300 text-m line-clamp-2">
                   {data.description}
                 </p>
                 <button

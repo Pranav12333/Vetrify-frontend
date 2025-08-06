@@ -25,7 +25,7 @@ const Banner = () => {
             </h1>
             <p
               data-aos="fade-up"
-              className="text-sm text-gray-500 tracking-wide leading-5"
+              className="text-m text-gray-500 tracking-wide leading-5"
             >
                Discover elegance in every thread. Explore our exclusive collection of Patola sarees, designer dupattas, modern shirts, and more — curated to make you feel timeless and beautiful.
             </p>

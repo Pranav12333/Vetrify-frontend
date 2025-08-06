@@ -115,8 +115,8 @@ const Footer = () => {
                 </div>
               </div> */}
               <div className="mt-6">
-                <h2 className="text-sm font-semibold mb-1">Our Branches</h2>
-                <ul className="text-sm space-y-1 text-gray-300">
+                <h2 className="text-m font-semibold mb-1">Our Branches</h2>
+                <ul className="text-m space-y-1 text-gray-300">
                   <li>📍 Surendranagar, Ratanpar, Street No. 9, near Mahatma Gandhi School</li>
                   <li>📍 Somasar, Chotila-Rajkot Highway</li>
                   <li>📍 Ahmedabad, Gujarat</li>
