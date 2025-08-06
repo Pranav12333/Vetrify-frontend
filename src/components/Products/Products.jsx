@@ -20,7 +20,7 @@ const Products = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 place-items-center gap-5">
             {products.map((data, index) => (
               <div key={data.id} data-aos="fade-up" data-aos-delay={index * 100} className="space-y-3">
-              <Link to={`/product/${data.id}`}>
+              <Link to={`/product/${data.id}`}  state={{ from: "Home" }}>
                 <img
                   src={data.image}
                   alt={data.name}

@@ -45,6 +45,7 @@ const NewArrivals = () => {
 
               <Link
                 to={`/product/${product.id}`}
+                state={{ from: "New Arrivals" }}
                 className="mt-4 inline-block w-full text-center bg-primary text-white py-2 px-4 rounded-full hover:bg-primary/90 transition"
               >
                 Buy Now
