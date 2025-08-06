@@ -8,6 +8,9 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home";
 import NewArrivals from "./components/Products/NewArrivals";
 import ProductDetail from "./pages/ProductDetail";
+import WomensCollection from "./components/Products/WomensCollection";
+import MensCollection from "./components/Products/MensCollection";
+import PatolaSpecial from "./components/Products/PatolaSpecial";
 
 const App = () => {
   const [orderPopup, setOrderPopup] = useState(false);
@@ -42,6 +45,9 @@ const App = () => {
             }
           />
           <Route path="/new-arrivals" element={<NewArrivals />} />
+          <Route path="/womens" element={<WomensCollection />} />
+          <Route path="/mens" element={<MensCollection />} />
+          <Route path="/patola" element={<PatolaSpecial />} />
           <Route path="/product/:id" element={<ProductDetail />} />
         </Routes>
       </div>

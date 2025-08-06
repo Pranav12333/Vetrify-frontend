@@ -12,8 +12,7 @@ const Menu = [
   { id: 2, name: "New Arrivals", link: "/new-arrivals" },
   { id: 3, name: "Womens Collection", link: "/womens" },
   { id: 4, name: "Mens Collection", link: "/mens" },
-  { id: 5, name: "Traditional Sarees", link: "/traditional" },
-  { id: 6, name: "Modern Sarees", link: "/modern" },
+  { id: 5, name: "Patola Special", link: "/patola" },
 ];
 
 const DropdownLinks = [
@@ -67,7 +66,7 @@ const Navbar = ({ handleOrderPopup }) => {
 
       {/* lower Navbar */}
       <div data-aos="zoom-in" className="flex justify-center">
-        <ul className="sm:flex hidden items-center gap-4">
+        <ul className="sm:flex hidden items-center gap-4 py-3">
           {Menu.map((item) => (
             <li key={item.id}>
               <Link
@@ -80,7 +79,7 @@ const Navbar = ({ handleOrderPopup }) => {
           ))}
 
           {/* Simple Dropdown and Links */}
-          <li className="group relative cursor-pointer">
+          {/* <li className="group relative cursor-pointer">
             <div className="flex items-center gap-[2px] py-2 px-4 hover:text-primary duration-200">
               Trending Products
               <span>
@@ -101,7 +100,7 @@ const Navbar = ({ handleOrderPopup }) => {
                 ))}
               </ul>
             </div>
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>
