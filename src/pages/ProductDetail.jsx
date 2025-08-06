@@ -1,6 +1,8 @@
 // src/pages/ProductDetail.jsx
 import React from "react";
 import { useParams } from "react-router-dom";
+import ReviewSection from "../components/ReviewSection";
+import SimilarProducts from "../components/SimilarProducts";
 
 const dummyProducts = [
   {
@@ -17,6 +19,10 @@ const dummyProducts = [
       color: "Red",
       style: "Traditional",
     },
+    reviews: [
+      { name: "Priya", rating: 5, comment: "Absolutely loved it!" },
+      { name: "Amit", rating: 4, comment: "Nice fabric and delivery was fast." },
+    ],
   },
   {
     id: 2,
@@ -32,6 +38,9 @@ const dummyProducts = [
       color: "Blue",
       style: "Modern",
     },
+    reviews: [
+      { name: "Neha", rating: 4, comment: "Very comfortable and stylish!" },
+    ],
   },
 ];
 
@@ -42,9 +51,9 @@ const ProductDetail = () => {
   if (!product) return <div className="p-10 text-center">Product not found</div>;
 
   return (
-    <div className="container py-10">
+    <div className="container py-10 space-y-14">
+      {/* Main Product Info */}
       <div className="grid md:grid-cols-2 gap-10">
-        {/* Image */}
         <div>
           <img
             src={product.image}
@@ -53,14 +62,13 @@ const ProductDetail = () => {
           />
         </div>
 
-        {/* Details */}
         <div>
           <h2 className="text-3xl font-bold mb-2">{product.name}</h2>
           <p className="text-xl text-primary font-bold">
-            ₹{product.price}{" "}
+            ₹{product.price}
             <span className="text-gray-500 line-through text-base ml-2">
               ₹{product.originalPrice}
-            </span>{" "}
+            </span>
             <span className="text-green-600 ml-1">
               ({Math.round(
                 ((product.originalPrice - product.price) / product.originalPrice) * 100
@@ -89,6 +97,12 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
+
+      {/* Reviews */}
+      <ReviewSection reviews={product.reviews} />
+
+      {/* Similar Products */}
+      <SimilarProducts currentProductId={product.id} products={dummyProducts} />
     </div>
   );
 };
