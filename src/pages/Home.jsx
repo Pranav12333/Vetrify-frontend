@@ -17,7 +17,6 @@ const Home = ({ handleOrderPopup, orderPopup, setOrderPopup }) => {
       <TopProducts handleOrderPopup={handleOrderPopup} />
       <Banner />
       <Subscribe />
-      <Products />
       <Testimonials />
       <Footer />
       <Popup orderPopup={orderPopup} setOrderPopup={setOrderPopup} />

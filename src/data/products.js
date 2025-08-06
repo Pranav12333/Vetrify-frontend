@@ -29,7 +29,7 @@ const products = [
       "Modern kurti with embroidered design and matching bottoms. Comfortable and stylish.",
     specifications: {
       fabric: "Cotton",
-      size: "M, L, XL",
+      sizes: ["M", "L", "XL"],
       color: "Blue",
       style: "Modern",
     },
@@ -47,6 +47,7 @@ const products = [
     specifications: {
       fabric: "Chiffon",
       color: "White",
+      sizes: ["M", "L", "XL"],
       style: "Ethnic",
     },
     reviews: [
@@ -62,6 +63,7 @@ const products = [
     description: "Trendy western outfit with bold color.",
     specifications: {
       fabric: "Georgette",
+      sizes: ["M", "L", "XL"],
       color: "Red",
       style: "Western",
     },
@@ -79,6 +81,7 @@ const products = [
     specifications: {
       fabric: "Cotton",
       color: "Yellow",
+      sizes: ["M", "L", "XL"],
       style: "Casual",
     },
      reviews: [

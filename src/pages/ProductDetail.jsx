@@ -1,27 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import ReviewSection from "../components/ReviewSection";
 import SimilarProducts from "../components/SimilarProducts";
 import products from "../data/products";
 
-
 const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
+  const fromPage = location.state?.from || "Home";
 
   const product = products.find((p) => p.id === parseInt(id));
+  const [selectedSize, setSelectedSize] = useState(null);
 
   if (!product) return <div className="p-10 text-center">Product not found</div>;
-  const location = useLocation();
-  const fromPage = location.state?.from || "Home"; // fallback to Home
+
+  const handleBuyNow = () => {
+    if (!selectedSize) {
+      alert("Please select a size before buying.");
+      return;
+    }
+    // Continue to checkout or show popup
+    alert(`You selected size: ${selectedSize}`);
+  };
 
   return (
     <div className="container py-10 space-y-14">
       {/* Back Button */}
-      
-     <button
-        onClick={() => navigate(-1)} // 👈 go back to previous page
+      <button
+        onClick={() => navigate(-1)}
         className="flex items-center text-primary hover:text-black dark:hover:text-white transition duration-300 mb-4 group"
       >
         <IoIosArrowBack className="text-2xl mr-2 group-hover:-translate-x-1 transition-transform duration-300" />
@@ -55,19 +63,47 @@ const ProductDetail = () => {
 
           <p className="mt-4 text-gray-700 dark:text-gray-300">{product.description}</p>
 
+          {/* Specifications */}
           <div className="mt-6 space-y-1">
-            {Object.entries(product.specifications).map(([key, value]) => (
-              <p key={key} className="capitalize">
-                <strong>{key}:</strong> {value}
-              </p>
-            ))}
+            {Object.entries(product.specifications).map(([key, value]) => {
+              if (key.toLowerCase() === "sizes" && Array.isArray(value)) {
+                return (
+                  <div key={key}>
+                    <strong className="capitalize block mb-2">{key}:</strong>
+                    <div className="flex gap-2 flex-wrap">
+                      {value.map((size) => (
+                        <button
+                          key={size}
+                          onClick={() => setSelectedSize(size)}
+                          className={`px-4 py-2 rounded-full border transition 
+                            ${selectedSize === size
+                              ? "bg-primary text-white border-primary"
+                              : "border-gray-300 text-gray-700 hover:border-primary hover:text-primary"}`}
+                        >
+                          {size}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+              return (
+                <p key={key} className="capitalize">
+                  <strong>{key}:</strong> {value}
+                </p>
+              );
+            })}
           </div>
 
+          {/* Buttons */}
           <div className="mt-6 flex gap-4">
             <button className="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition">
               Add to Cart
             </button>
-            <button className="border border-primary text-primary px-6 py-2 rounded-full hover:bg-primary hover:text-white transition">
+            <button
+              onClick={handleBuyNow}
+              className="border border-primary text-primary px-6 py-2 rounded-full hover:bg-primary hover:text-white transition"
+            >
               Buy Now
             </button>
           </div>
@@ -75,14 +111,12 @@ const ProductDetail = () => {
       </div>
 
       {/* Reviews */}
-    {product.reviews && product.reviews.length > 0 && (
-      <ReviewSection reviews={product.reviews} />
-    )}
+      {product.reviews && product.reviews.length > 0 && (
+        <ReviewSection reviews={product.reviews} />
+      )}
 
       {/* Similar Products */}
-    {products.filter((p) => p.id !== products.id).length > 0 && (
-      <SimilarProducts currentProductId={products.id} products={products} />
-    )}
+      <SimilarProducts currentProductId={product.id} products={products.filter((p) => p.id !== product.id)} />
     </div>
   );
 };
