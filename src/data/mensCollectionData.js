@@ -1,13 +1,13 @@
 const mensCollection = [
   {
-    id: 201,
+    id: 101,
     name: "Classic Kurta Pajama",
     price: 1499,
     originalPrice: 1899,
     images: [
-      "https://picsum.photos/300/400?random=102201",
-      "https://picsum.photos/300/400?random=102202",
-      "https://picsum.photos/300/400?random=102203",
+      "src/assets/clothes/mens-collection/men-collection-1A.jpg",
+      "src/assets/clothes/mens-collection/men-collection-1B.jpg",
+      "src/assets/clothes/mens-collection/men-collection-1C.jpg",
     ],
     description: "Traditional white kurta pajama set in premium cotton.",
     specifications: {
@@ -38,14 +38,14 @@ const mensCollection = [
     ],
   },
   {
-    id: 202,
+    id: 102,
     name: "Formal Shirt",
     price: 1299,
     originalPrice: 1699,
     images: [
-      "https://picsum.photos/300/400?random=102204",
-      "https://picsum.photos/300/400?random=102205",
-      "https://picsum.photos/300/400?random=102206",
+      "src/assets/clothes/mens-collection/men-collection-2A.jpg",
+      "src/assets/clothes/mens-collection/men-collection-2B.jpg",
+      "src/assets/clothes/mens-collection/men-collection-2C.jpg",
     ],
     description: "Slim fit formal shirt in solid color.",
     specifications: {
@@ -76,14 +76,15 @@ const mensCollection = [
     ],
   },
   {
-    id: 203,
+    id: 103,
     name: "Casual T-Shirt",
     price: 999,
     originalPrice: 1299,
     images: [
-      "https://picsum.photos/300/400?random=102207",
-      "https://picsum.photos/300/400?random=102208",
-      "https://picsum.photos/300/400?random=102209",
+      "src/assets/clothes/mens-collection/men-collection-3A.jpg",
+      "src/assets/clothes/mens-collection/men-collection-3B.jpg",
+      "src/assets/clothes/mens-collection/men-collection-3C.jpg",
+      "src/assets/clothes/mens-collection/men-collection-3D.jpg",
     ],
     description: "Comfortable casual t-shirt in soft cotton.",
     specifications: {
@@ -114,14 +115,14 @@ const mensCollection = [
     ],
   },
   {
-    id: 204,
+    id: 104,
     name: "Jeans",
     price: 1599,
     originalPrice: 1999,
     images: [
-      "https://picsum.photos/300/400?random=102210",
-      "https://picsum.photos/300/400?random=102211",
-      "https://picsum.photos/300/400?random=102212",
+      "src/assets/clothes/mens-collection/men-collection-3A.jpg",
+      "src/assets/clothes/mens-collection/men-collection-3B.jpg",
+      "src/assets/clothes/mens-collection/men-collection-3C.jpg",
     ],
     description: "Slim fit jeans in dark wash.",
     specifications: {
@@ -152,14 +153,14 @@ const mensCollection = [
     ],
   },
   {
-    id: 205,
+    id: 105,
     name: "Winter Jacket",
     price: 2499,
     originalPrice: 2999,
     images: [
-      "https://picsum.photos/300/400?random=102213",
-      "https://picsum.photos/300/400?random=102214",
-      "https://picsum.photos/300/400?random=102215",
+      "src/assets/clothes/mens-collection/men-collection-2A.jpg",
+      "src/assets/clothes/mens-collection/men-collection-2B.jpg",
+      "src/assets/clothes/mens-collection/men-collection-2C.jpg",
     ],
     description: "Warm winter jacket with hood.",
     specifications: {
@@ -190,14 +191,14 @@ const mensCollection = [
     ],
   },
   {
-    id: 206,
+    id: 106,
     name: "Sports Shoes",
     price: 1999,
     originalPrice: 2499,
     images: [
-      "https://picsum.photos/300/400?random=102216",
-      "https://picsum.photos/300/400?random=102217",
-      "https://picsum.photos/300/400?random=102218",
+      "src/assets/clothes/mens-collection/men-collection-1A.jpg",
+      "src/assets/clothes/mens-collection/men-collection-1B.jpg",
+      "src/assets/clothes/mens-collection/men-collection-1C.jpg",
     ],
     description: "Comfortable sports shoes for running and training.",
     specifications: {

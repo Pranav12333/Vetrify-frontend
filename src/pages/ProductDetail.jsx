@@ -70,7 +70,7 @@ const ProductDetail = () => {
             </button>
 
             <img
-              src={selectedImage}
+              src={`/${selectedImage}`}
               alt="Zoomed"
               className="max-h-[90vh] max-w-[90vw] object-contain cursor-zoom-out"
               onClick={() => setIsModalOpen(false)}
@@ -79,9 +79,9 @@ const ProductDetail = () => {
 
           <div className="overflow-hidden rounded-md border mb-4">
             <img
-              src={selectedImage}
+              src={`/${selectedImage}`}
               alt={product.name}
-              className="w-full h-[450px] object-cover rounded-md transform transition-transform duration-300 hover:scale-105 cursor-zoom-in"
+              className="w-full h-[650px] object-cover rounded-md transform transition-transform duration-300 hover:scale-105 cursor-zoom-in"
               onClick={() => setIsModalOpen(true)}
             />
           </div>
@@ -90,10 +90,10 @@ const ProductDetail = () => {
             {product.images?.map((img, idx) => (
               <img
                 key={idx}
-                src={img}
+                src={`/${img}`}
                 alt={`Thumbnail ${idx}`}
                 className={`w-20 h-20 object-cover rounded-md cursor-pointer border 
-                  ${selectedImage === img ? "border-blue-500" : "border-transparent"}
+                  ${`../${selectedImage}` === img ? "border-blue-500" : "border-transparent"}
                 `}
                 onClick={() => setSelectedImage(img)}
               />

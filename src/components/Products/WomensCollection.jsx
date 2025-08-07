@@ -17,7 +17,7 @@ const WomensCollection = () => {
             >
               <div className="overflow-hidden rounded-lg">
                 <img
-                  src={product.image}
+                  src={`/${product.images?.[0]}`}
                   alt={product.name}
                   className="w-full h-64 object-cover rounded-lg group-hover:brightness-90 transition-all"
                 />

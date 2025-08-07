@@ -1,11 +1,11 @@
 // src/data/products.js
 const products = [
   {
-    id: 1,
+    id: 401,
     name: "Elegant Patola Saree",
     price: 1499,
     originalPrice: 1899,
-    image: "https://picsum.photos/500/600?random=1",
+    image: "src/assets/clothes/mens-collection/men-collection-1A.jpg",
     description:
       "Beautiful Patola Saree with handwoven details. Includes blouse piece. Ideal for weddings and festive wear.",
     specifications: {
@@ -20,42 +20,7 @@ const products = [
     ],
   },
   {
-    id: 2,
-    name: "Modern Kurti Set",
-    price: 999,
-    originalPrice: 1299,
-    image: "https://picsum.photos/500/600?random=2",
-    description:
-      "Modern kurti with embroidered design and matching bottoms. Comfortable and stylish.",
-    specifications: {
-      fabric: "Cotton",
-      sizes: ["M", "L", "XL"],
-      color: "Blue",
-      style: "Modern",
-    },
-    reviews: [
-      { name: "Neha", rating: 4, comment: "Very comfortable and stylish!" },
-    ],
-  },
-  {
-    id: 3,
-    name: "Women Ethnic",
-    price: 1199,
-    originalPrice: 1499,
-    image: "/src/assets/women/women.png",
-    description: "Graceful ethnic wear with timeless elegance.",
-    specifications: {
-      fabric: "Chiffon",
-      color: "White",
-      sizes: ["M", "L", "XL"],
-      style: "Ethnic",
-    },
-    reviews: [
-      { name: "Neha", rating: 4, comment: "Very comfortable and stylish!" },
-    ],
-  },
-  {
-    id: 4,
+    id: 402,
     name: "Women Western",
     price: 899,
     originalPrice: 1199,
@@ -72,7 +37,42 @@ const products = [
     ],
   },
   {
-    id: 5,
+    id: 403,
+    name: "Women Ethnic",
+    price: 1199,
+    originalPrice: 1499,
+    image: "/src/assets/women/women.png",
+    description: "Graceful ethnic wear with timeless elegance.",
+    specifications: {
+      fabric: "Chiffon",
+      color: "White",
+      sizes: ["M", "L", "XL"],
+      style: "Ethnic",
+    },
+    reviews: [
+      { name: "Neha", rating: 4, comment: "Very comfortable and stylish!" },
+    ],
+  },
+  {
+    id: 404,
+    name: "Modern Kurti Set",
+    price: 999,
+    originalPrice: 1299,
+    image: "src/assets/clothes/mens-collection/men-collection-2B.jpg",
+    description:
+      "Modern kurti with embroidered design and matching bottoms. Comfortable and stylish.",
+    specifications: {
+      fabric: "Cotton",
+      sizes: ["M", "L", "XL"],
+      color: "Blue",
+      style: "Modern",
+    },
+    reviews: [
+      { name: "Neha", rating: 4, comment: "Very comfortable and stylish!" },
+    ],
+  },
+  {
+    id: 405,
     name: "Printed T-Shirt",
     price: 599,
     originalPrice: 799,

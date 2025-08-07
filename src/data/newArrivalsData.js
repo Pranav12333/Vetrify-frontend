@@ -2,11 +2,11 @@
 
 const newArrivals = [
   {
-    id: 101,
+    id: 201,
     name: "Elegant Patola Saree",
     price: 1499,
     originalPrice: 1999,
-    image: "https://picsum.photos/300/400?random=101",
+    image: "src/assets/clothes/patola/patola1A-Yellow.jpg",
     description: "A rich red patola saree with traditional motifs and soft silk blend.",
     specifications: {
       material: "Silk Blend",
@@ -30,11 +30,11 @@ const newArrivals = [
     ],
   },
   {
-    id: 102,
+    id: 202,
     name: "Modern Kurti Set",
     price: 999,
     originalPrice: 1299,
-    image: "https://picsum.photos/300/400?random=102",
+    image: "src/assets/clothes/patola/patola3D-navaratna.jpg",
     description: "Stylish kurti with trendy embroidery perfect for all occasions.",
     specifications: {
       material: "Cotton",
@@ -46,6 +46,50 @@ const newArrivals = [
       {
         id: 1,
         name: "Rina Patel",
+        rating: 4,
+        comment: "Very comfortable and looks stylish.",
+      },
+    ],
+  },
+  {
+    id: 203,
+    name: "Modern Kurti Set",
+    price: 999,
+    originalPrice: 1299,
+    image: "src/assets/clothes/women-collection/women-collection-2A.jpg",
+    description: "Stylish kurti with trendy embroidery perfect for all occasions.",
+    specifications: {
+      material: "Cotton",
+      color: "Blue",
+      sizes: ["S", "M", "L", "XL"],
+    },
+    rating: 4.5,
+    reviews: [
+      {
+        id: 1,
+        name: "Sneha Patel",
+        rating: 4,
+        comment: "Very comfortable and looks stylish.",
+      },
+    ],
+  },
+  {
+    id: 204,
+    name: "Modern Kurti Set",
+    price: 2999,
+    originalPrice: 3299,
+    image: "src/assets/clothes/women-collection/women-collection-4D.jpg",
+    description: "Stylish kurti with trendy embroidery perfect for all occasions.",
+    specifications: {
+      material: "Cotton",
+      color: "Blue",
+      sizes: ["S", "M", "L", "XL"],
+    },
+    rating: 4.5,
+    reviews: [
+      {
+        id: 1,
+        name: "Sneha Patel",
         rating: 4,
         comment: "Very comfortable and looks stylish.",
       },
