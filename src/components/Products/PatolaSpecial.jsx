@@ -1,25 +1,9 @@
 // src/components/Products/PatolaSpecial.jsx
 import React from "react";
 import { Link } from "react-router-dom";
+import patolaSpecials from "../../data/patolaSpecialData";
 
 const PatolaSpecial = () => {
-  const patolaSpecialProduct = [
-    {
-      id: 7,
-      name: "Royal Patola Saree",
-      price: 3499,
-      image: "https://picsum.photos/300/400?random=7",
-      description: "Handloom Patola saree from Gujarat with rich traditional patterns.",
-    },
-    {
-      id: 8,
-      name: "Patola Dupatta",
-      price: 999,
-      image: "https://picsum.photos/300/400?random=8",
-      description: "Bright and bold Patola dupatta to pair with any ethnic wear.",
-    },
-  ];
-
   return (
     <section className="py-16 bg-gradient-to-b from-white via-yellow-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="container px-4 mx-auto">
@@ -27,7 +11,7 @@ const PatolaSpecial = () => {
           🧵 Patola Specials
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-          {patolaSpecialProduct.map((product) => (
+          {patolaSpecials.map((product) => (
             <div
               key={product.id}
               className="group relative border border-gray-200 dark:border-gray-700 p-4 rounded-xl shadow-md hover:shadow-2xl transition-all bg-white dark:bg-gray-800 hover:scale-105 duration-300"

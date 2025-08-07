@@ -1,25 +1,9 @@
 // src/components/Products/NewArrivals.jsx
 import React from "react";
 import { Link } from "react-router-dom";
+import newArrivals from "../../data/newArrivalsData";
 
 const NewArrivals = () => {
-  const newArrivalProducts = [
-    {
-      id: 1,
-      name: "new arrived Elegant Patola Saree",
-      price: 1499,
-      image: "https://picsum.photos/300/400?random=1",
-      description: "A rich red patola saree with traditional motifs and soft silk blend.",
-    },
-    {
-      id: 2,
-      name: "Modern Kurti Set",
-      price: 999,
-      image: "https://picsum.photos/300/400?random=2",
-      description: "Stylish kurti with trendy embroidery perfect for all occasions.",
-    },
-  ];
-
   return (
     <section className="py-16 bg-gradient-to-b from-white via-rose-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="container px-4 mx-auto">
@@ -27,7 +11,7 @@ const NewArrivals = () => {
           ✨ New Arrivals ✨
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-          {newArrivalProducts.map((product) => (
+          {newArrivals.map((product) => (
             <div
               key={product.id}
               className="group relative border border-gray-200 dark:border-gray-700 p-4 rounded-xl shadow-md hover:shadow-2xl transition-all bg-white dark:bg-gray-800 hover:scale-105 duration-300"

@@ -1,25 +1,8 @@
-// src/components/Products/WomensCollection.jsx
 import React from "react";
 import { Link } from "react-router-dom";
+import womenProducts from "../../data/womenCollectionData";
 
 const WomensCollection = () => {
-  const womenProducts = [
-    {
-      id: 3,
-      name: "Floral Anarkali Dress",
-      price: 1299,
-      image: "https://picsum.photos/300/400?random=3",
-      description: "Elegant Anarkali with floral prints and comfortable fabric.",
-    },
-    {
-      id: 4,
-      name: "Chanderi Kurta Set",
-      price: 1799,
-      image: "https://picsum.photos/300/400?random=4",
-      description: "Graceful Chanderi kurta with dupatta for festive wear.",
-    },
-  ];
-
   return (
     <section className="py-16 bg-gradient-to-b from-white via-pink-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="container px-4 mx-auto">

@@ -1,9 +1,17 @@
+// src/pages/ProductDetail.jsx
 import React, { useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import ReviewSection from "../components/ReviewSection";
 import SimilarProducts from "../components/SimilarProducts";
+import Modal from "react-modal";
+
+// Import all product data
 import products from "../data/productsData";
+import newArrivals from "../data/newArrivalsData";
+import mensCollection from "../data/mensCollectionData";
+import patolaSpecial from "../data/patolaSpecialData";
+import womenProducts from "../data/womenCollectionData";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -11,17 +19,23 @@ const ProductDetail = () => {
   const location = useLocation();
   const fromPage = location.state?.from || "Home";
 
-  const product = products.find((p) => p.id === parseInt(id));
-  const [selectedSize, setSelectedSize] = useState(null);
+  // Combine all product sources
+  const allProducts = [
+    ...products, ...newArrivals, ...mensCollection, ...patolaSpecial, ...womenProducts,
+  ];
 
-  if (!product) return <div className="p-10 text-center">Product not found</div>;
+  const product = allProducts.find((p) => p.id.toString() === id);
+  const [selectedSize, setSelectedSize] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(product?.images?.[0] || "");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  if (!product) return <div className="p-10 text-center text-red-600 text-xl">Product not found</div>;
 
   const handleBuyNow = () => {
     if (!selectedSize) {
       alert("Please select a size before buying.");
       return;
     }
-    // Continue to checkout or show popup
     alert(`You selected size: ${selectedSize}`);
   };
 
@@ -38,14 +52,56 @@ const ProductDetail = () => {
 
       {/* Product Info */}
       <div className="grid md:grid-cols-2 gap-10">
+        {/* Image Gallery */}
         <div>
-          <img
-            src={product.image}
-            alt={product.name}
-            className="w-full max-h-[600px] object-contain rounded-md"
-          />
+          {/* Modal */}
+          <Modal
+            isOpen={isModalOpen}
+            onRequestClose={() => setIsModalOpen(false)}
+            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50"
+            overlayClassName="fixed inset-0 bg-black bg-opacity-70"
+            ariaHideApp={false}
+          >
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-5 right-5 text-white text-3xl z-50 hover:text-red-400 transition"
+            >
+              &times;
+            </button>
+
+            <img
+              src={selectedImage}
+              alt="Zoomed"
+              className="max-h-[90vh] max-w-[90vw] object-contain cursor-zoom-out"
+              onClick={() => setIsModalOpen(false)}
+            />
+          </Modal>
+
+          <div className="overflow-hidden rounded-md border mb-4">
+            <img
+              src={selectedImage}
+              alt={product.name}
+              className="w-full h-[450px] object-cover rounded-md transform transition-transform duration-300 hover:scale-105 cursor-zoom-in"
+              onClick={() => setIsModalOpen(true)}
+            />
+          </div>
+
+          <div className="flex gap-3">
+            {product.images?.map((img, idx) => (
+              <img
+                key={idx}
+                src={img}
+                alt={`Thumbnail ${idx}`}
+                className={`w-20 h-20 object-cover rounded-md cursor-pointer border 
+                  ${selectedImage === img ? "border-blue-500" : "border-transparent"}
+                `}
+                onClick={() => setSelectedImage(img)}
+              />
+            ))}
+          </div>
         </div>
 
+        {/* Right Content */}
         <div>
           <h2 className="text-3xl font-bold mb-2">{product.name}</h2>
           <p className="text-xl text-primary font-bold">
@@ -65,7 +121,7 @@ const ProductDetail = () => {
 
           {/* Specifications */}
           <div className="mt-6 space-y-1">
-            {Object.entries(product.specifications).map(([key, value]) => {
+            {Object.entries(product.specifications || {}).map(([key, value]) => {
               if (key.toLowerCase() === "sizes" && Array.isArray(value)) {
                 return (
                   <div key={key}>
@@ -116,7 +172,10 @@ const ProductDetail = () => {
       )}
 
       {/* Similar Products */}
-      <SimilarProducts currentProductId={product.id} products={products.filter((p) => p.id !== product.id)} />
+      <SimilarProducts
+        currentProductId={product.id}
+        products={allProducts.filter((p) => p.id !== product.id)}
+      />
     </div>
   );
 };
