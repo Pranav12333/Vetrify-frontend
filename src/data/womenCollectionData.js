@@ -8,7 +8,8 @@ const womenProducts = [
       "src/assets/clothes/women-collection/women-collection-1A.jpg",
       "src/assets/clothes/women-collection/women-collection-1B.jpg",
       "src/assets/clothes/women-collection/women-collection-1C.jpg",
-    ],    description: "Elegant Anarkali with floral prints and comfortable fabric.",
+    ],
+    description: "Elegant Anarkali with floral prints and comfortable fabric.",
     specifications: {
       material: "Rayon",
       color: "Peach",

@@ -1,13 +1,12 @@
-// src/components/Products/PatolaSpecial.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 import patolaSpecials from "../../data/patolaSpecialData";
 
 const PatolaSpecial = () => {
   return (
-    <section className="py-16 bg-gradient-to-b from-white via-yellow-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <section className="py-16 bg-gradient-to-b from-white via-pink-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="container px-4 mx-auto">
-        <h2 className="text-4xl font-extrabold text-center mb-12 text-yellow-700 dark:text-yellow-300 tracking-wide">
+        <h2 className="text-4xl font-extrabold text-center mb-12 text-pink-700 dark:text-pink-300 tracking-wide">
           🧵 Patola Specials
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
@@ -18,7 +17,7 @@ const PatolaSpecial = () => {
             >
               <div className="overflow-hidden rounded-lg">
                 <img
-                  src={product.image}
+                  src={`/${product.images?.[0]}`}
                   alt={product.name}
                   className="w-full h-64 object-cover rounded-lg group-hover:brightness-90 transition-all"
                 />
@@ -26,13 +25,13 @@ const PatolaSpecial = () => {
               <div className="mt-4 space-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 dark:text-white">{product.name}</h3>
                 <p className="text-gray-600 dark:text-gray-300 text-sm line-clamp-2">{product.description}</p>
-                <p className="text-yellow-600 font-bold text-lg">₹{product.price}</p>
+                <p className="text-pink-600 font-bold text-lg">₹{product.price}</p>
               </div>
 
               <Link
                 to={`/product/${product.id}`}
                 state={{ from: "Patola" }}
-                className="mt-6 inline-block w-full text-center bg-yellow-600 text-white font-medium py-2.5 px-4 rounded-full hover:bg-yellow-700 transition-colors duration-300"
+                className="mt-6 inline-block w-full text-center bg-pink-600 text-white font-medium py-2.5 px-4 rounded-full hover:bg-pink-700 transition-colors duration-300"
               >
                 Buy Now
               </Link>
