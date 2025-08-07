@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const PatolaSpecial = () => {
-  const products = [
+  const patolaSpecialProduct = [
     {
       id: 7,
       name: "Royal Patola Saree",
@@ -27,7 +27,7 @@ const PatolaSpecial = () => {
           🧵 Patola Specials
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-          {products.map((product) => (
+          {patolaSpecialProduct.map((product) => (
             <div
               key={product.id}
               className="group relative border border-gray-200 dark:border-gray-700 p-4 rounded-xl shadow-md hover:shadow-2xl transition-all bg-white dark:bg-gray-800 hover:scale-105 duration-300"

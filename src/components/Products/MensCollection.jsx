@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const MensCollection = () => {
-  const products = [
+  const mensProducts = [
     {
       id: 5,
       name: "Classic Kurta Pajama",
@@ -27,7 +27,7 @@ const MensCollection = () => {
           👔 Men's Collection
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-          {products.map((product) => (
+          {mensProducts.map((product) => (
             <div
               key={product.id}
               className="group relative border border-gray-200 dark:border-gray-700 p-4 rounded-xl shadow-md hover:shadow-2xl transition-all bg-white dark:bg-gray-800 hover:scale-105 duration-300"

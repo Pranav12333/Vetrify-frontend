@@ -1,6 +1,4 @@
 // src/components/ReviewSection.jsx
-import React from "react";
-
 const ReviewSection = ({ reviews = [] }) => {
   return (
     <div className="mt-10">

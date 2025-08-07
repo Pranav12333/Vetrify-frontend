@@ -3,7 +3,7 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import ReviewSection from "../components/ReviewSection";
 import SimilarProducts from "../components/SimilarProducts";
-import products from "../data/products";
+import products from "../data/productsData";
 
 const ProductDetail = () => {
   const { id } = useParams();

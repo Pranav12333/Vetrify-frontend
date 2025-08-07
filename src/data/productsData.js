@@ -15,8 +15,8 @@ const products = [
       style: "Traditional",
     },
     reviews: [
-      { name: "Priya", rating: 5, comment: "Absolutely loved it!" },
-      { name: "Amit", rating: 4, comment: "Nice fabric and delivery was fast." },
+      { name: "Priya11111", rating: 5, comment: "Absolutely loved it!" },
+      { name: "Amit222222222", rating: 4, comment: "Nice fabric and delivery was fast." },
     ],
   },
   {

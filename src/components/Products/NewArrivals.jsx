@@ -3,10 +3,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const NewArrivals = () => {
-  const products = [
+  const newArrivalProducts = [
     {
       id: 1,
-      name: "Elegant Patola Saree",
+      name: "new arrived Elegant Patola Saree",
       price: 1499,
       image: "https://picsum.photos/300/400?random=1",
       description: "A rich red patola saree with traditional motifs and soft silk blend.",
@@ -27,7 +27,7 @@ const NewArrivals = () => {
           ✨ New Arrivals ✨
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-          {products.map((product) => (
+          {newArrivalProducts.map((product) => (
             <div
               key={product.id}
               className="group relative border border-gray-200 dark:border-gray-700 p-4 rounded-xl shadow-md hover:shadow-2xl transition-all bg-white dark:bg-gray-800 hover:scale-105 duration-300"
