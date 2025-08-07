@@ -87,28 +87,25 @@ const Testimonials = () => {
         <div data-aos="zoom-in">
           <Slider {...settings}>
             {TestimonialData.map((data) => (
-              <div  key={data.id}  className="my-6">
+              <div key={data.id} className="my-6 px-2">
                 <div
-                  className="flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl dark:bg-gray-800 bg-primary/10 relative"
+                  className="w-full sm:w-[400px] h-[250px] mx-auto flex flex-col items-center justify-between gap-4 shadow-lg py-6 px-4 rounded-xl dark:bg-gray-800 bg-primary/10 relative text-center overflow-hidden"
                 >
-                  <div className="mb-4">
+                  <div className="mb-2">
                     <img
                       src={data.img}
-                      alt=""
-                      className="rounded-full w-20 h-20"
+                      alt={data.name}
+                      className="rounded-full w-16 h-16 object-cover"
                     />
                   </div>
-                  <div className="flex flex-col items-center gap-4">
-                    <div className="space-y-3">
-                      <p className="text-s text-gray-500">{data.text}</p>
-                      <h1 className="text-xl font-bold text-black/80 dark:text-light">
-                        {data.name}
-                      </h1>
-                    </div>
+
+                  {/* Scrollable Content */}
+                  <div className="flex-1 flex flex-col items-center justify-between overflow-y-auto px-1">
+                    <p className="text-sm text-gray-500 mb-3">{data.text}</p>
+                    <h1 className="text-lg font-bold text-black/80 dark:text-white">
+                      {data.name}
+                    </h1>
                   </div>
-                  <p className="text-black/20 text-9xl font-serif absolute top-0 right-0">
-                    ,,
-                  </p>
                 </div>
               </div>
             ))}
